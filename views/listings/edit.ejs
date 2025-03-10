@@ -1,0 +1,84 @@
+<% layout('/layouts/boilerplate') -%>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Edit Listings</h3>
+    <form
+      method="post"
+      action="/listings/<%=prevData._id%>?_method=PUT"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Enter title</label>
+        <input
+          type="text"
+          value="<%=prevData.title %>"
+          name="listing[title]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter title.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="discription" class="form-label">Description</label>
+        <input
+          type="text"
+          name="listing[description]"
+          value="<%=prevData.description %>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter Description.</div>
+      </div>
+      <img src="<%=originalUrl%>" />
+      <div class="mb-3">
+        <label for="image" class="form-label">image</label>
+        <input type="file" name="listing[image]" class="form-control" />
+        <div class="invalid-feedback">url/link cannot be empty.</div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Enter price</label>
+          <input
+            type="number"
+            name="listing[price]"
+            value="<%=prevData.price%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter price.</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="location" class="form-label">Enter Location</label>
+          <input
+            type="text"
+            name="listing[location]"
+            value="<%=prevData.location%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter your location.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="country" class="form-label">Enter Country</label>
+        <input
+          type="text"
+          name="listing[country]"
+          placeholder="enter country"
+          value="<%=prevData.country%>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter your country.</div>
+      </div>
+
+      <button class="btn btn-dark add-btn mb-3 mt-3">change</button>
+    </form>
+  </div>
+</div>
